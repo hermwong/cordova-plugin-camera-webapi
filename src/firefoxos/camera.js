@@ -19,6 +19,8 @@
  *
 */
 
+
+
 function getPicture(cameraSuccess, cameraError, cameraOptions) {
   cameraError = cameraError || function(){};
   var pick = new MozActivity({
@@ -35,7 +37,7 @@ function getPicture(cameraSuccess, cameraError, cameraOptions) {
       // TODO: base64
       return;
     }
-    if (!cameraOptions || !cameraOptions.destinationTyoe || cameraOptions.destinationType > 0) {
+    if (!cameraOptions || !cameraOptions.destinationType || cameraOptions.destinationType > 0) {
       // url
       return cameraSuccess(window.URL.createObjectURL(this.result.blob));
     }
